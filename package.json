@@ -1,0 +1,32 @@
+{
+  "name": "noot.space",
+  "version": "1.0.0",
+  "description": "Maximum noot",
+  "author": "Luke Clark",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-jshint": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-css": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-uglify": "*",
+    "jshint-stylish": "*",
+    "node-sass": "*"
+  },
+  "paths": {
+    "styles": {
+      "files": "style.scss",
+      "dest": "app"
+    },
+    "scripts": {
+      "files": "script.js",
+      "dest": "app"
+    }
+  }
+}

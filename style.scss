@@ -1,0 +1,41 @@
+.container{position:absolute;top:0;left:0;right:0;bottom:0;background:url(noot.gif) 50% 50% no-repeat;background-size:cover}.twitter-share-button{position:absolute;-webkit-transform:translate(-50% -50%);transform:translate(-50% -50%);bottom:42%;left:38%}
+
+a.twitter-share-button {
+  display: inline-block;
+  padding: 9px 10px 6px 32px;
+  border: #ccc solid 1px;
+  border-radius: 3px;
+  background: #f8f8f8 url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat;
+  background: url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat,
+              -webkit-linear-gradient(#fff, #dedede);
+  background: url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat,
+              linear-gradient(#fff, #dedede);
+  background-size: 24px 24px, auto auto;
+
+  /* Text */
+    font: bold 14px Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  white-space: nowrap;
+}
+
+/* Color Highlight for keyboard navigation */
+a.twitter-share-button:focus,
+a.twitter-share-button:hover,
+a.twitter-share-button:active {
+  border-color: #bbb;
+  background: #d9d9d9 url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat;
+  background: url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat,
+              -webkit-linear-gradient(#f8f8f8,#d9d9d9);
+  background: url(//g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png) 4px 3px no-repeat,
+              linear-gradient(#f8f8f8,#d9d9d9);
+  background-size: 24px 24px, auto auto;
+  box-shadow: none;
+}
+
+a.twitter-share-button:focus {
+  outline: none;
+  border-color: #0089cb;
+}
+
