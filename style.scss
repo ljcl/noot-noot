@@ -3,8 +3,13 @@
 #nootable {position:absolute;-webkit-transform:translate(-50% -50%);transform:translate(-50% -50%);bottom:42%;left:38%}
 
 
-#nootable {
-
+#luke {
+  right: 2px;
+  bottom: 2px;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: monospace;
+  text-decoration: none;
 }
 
 a.facebook-share-button {
