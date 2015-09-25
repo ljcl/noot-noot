@@ -33,6 +33,7 @@
   // Count the noots
   function countNoot(e) {
     if(preventFirst === false && (userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i )) ){
+      console.log('iOS');
       preventFirst = true;
       return;
     }

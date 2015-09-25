@@ -16,6 +16,7 @@
   left: 0px;
   bottom: 0px;
   position: absolute;
+  height: 100px
 }
 
 a.facebook-share-button {
@@ -97,3 +98,16 @@ a.twitter-share-button:focus {
   border-color: #0089cb;
 }
 
+@media (max-width: 389px) {
+  #luke {
+    right: 2px;
+    bottom: auto;
+    top: 2px;
+  }
+}
+
+@media (max-width: 321px) {
+  #lmc {
+    height: 50px;
+  }
+}

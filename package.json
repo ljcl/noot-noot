@@ -28,5 +28,8 @@
       "files": "script.js",
       "dest": "app"
     }
+  },
+  "dependencies": {
+    "body-parser": "^1.13.1"
   }
 }
