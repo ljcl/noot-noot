@@ -62,9 +62,9 @@
 (function(){
 'use strict';
 // Analytics hax
-var tracker = document.querySelector('[data-ga]');
-tracker.addEventListener('click', gaEvent);
-tracker.addEventListener('touchend', gaEvent);
+// var tracker = document.querySelector('[data-ga]');
+// tracker.addEventListener('click', gaEvent);
+// tracker.addEventListener('touchend', gaEvent);
 
 function gaEvent() {
   if (this.dataset.ga !== 'undefined') {
