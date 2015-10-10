@@ -46,7 +46,7 @@
     twitterShare.href = tweetUrl + ' (' + counter + '!)';
     //ga('send', 'event', 'action', 'noot', '', 1);
     dataLayer.push({
-      'event': 'dataLayer',
+      'event': 'trackEvent',
       'gtmCategory': 'action',
       'gtmAction': 'noot',
       'gtmValue': 1
@@ -74,7 +74,7 @@ function gaEvent() {
         value = this.dataset.value;
     // Send the event, homie.
     dataLayer.push({
-      'event': 'dataLayer',
+      'event': 'trackEvent',
       'gtmCategory': category,
       'gtmAction': action,
       'gtmLabel': label,
