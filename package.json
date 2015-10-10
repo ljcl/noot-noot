@@ -13,11 +13,11 @@
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-rename": "*",
-    "gulp-sass": "*",
+    "gulp-sass": "^2.0.4",
     "gulp-size": "*",
     "gulp-uglify": "*",
     "jshint-stylish": "*",
-    "node-sass": "*"
+    "node-sass": "^3.3.3"
   },
   "paths": {
     "styles": {

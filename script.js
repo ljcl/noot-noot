@@ -44,7 +44,13 @@
     twitterShare.dataset.noot = counter;
     twitterShare.innerHTML = counter + ' Noots';
     twitterShare.href = tweetUrl + ' (' + counter + '!)';
-    ga('send', 'event', 'action', 'noot', '', 1);
+    //ga('send', 'event', 'action', 'noot', '', 1);
+    dataLayer.push({
+      'event': 'dataLayer',
+      'gtmCategory': 'action',
+      'gtmAction': 'noot',
+      'gtmValue': 1
+    });
     if (e){ return; }
     setTimeout(function(){
       countNoot('stop');
@@ -67,9 +73,14 @@ function gaEvent() {
         label = this.dataset.label,
         value = this.dataset.value;
     // Send the event, homie.
-    ga('send', 'event', category, action, label, value);
+    dataLayer.push({
+      'event': 'dataLayer',
+      'gtmCategory': category,
+      'gtmAction': action,
+      'gtmLabel': label,
+      'gtmValue': value,
+    });
+    //ga('send', 'event', category, action, label, value);
   }
 }
 }());
-
-
