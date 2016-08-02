@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title !{title}
+    meta(name='description', content=description)
+    meta(property='og:title', content=og.title)
+    meta(property='og:url', content=og.url)
+    meta(property='og:description', content=og.description)
+    meta(property='og:image', content=og.image)
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./noot.css')
+  body
+    include includes/gtm
+    #noot.container
+      #nootable
+        a.twitter-share-button(href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fnoot.space/&text=noot noot', target='_blank', data-category='twitter', data-action='click', data-label='button', data-noot='0', data-tweeturl='https://twitter.com/intent/tweet?url=http%3A%2F%2Fnoot.space&text=just made pingu noot noot') &nbsp;
+        a.facebook-share-button(href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnoot.space', target='_blank', data-category='facebook', data-action='click', data-label='button', data-noot='0', data-facebookurl='https://twitter.com/intent/tweet?url=http%3A%2F%2Fnoot.space&text=noot noot') &nbsp;
+      include includes/adsense
+      #luke: a(href='https://lukeclark.com.au/') How odd.
+    script(src='./noot.js')
