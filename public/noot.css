@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: url("noot.gif") 50% 50% no-repeat;
   background-size: cover; }
 
 #nootable {

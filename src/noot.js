@@ -47,14 +47,12 @@
         twitterShare.dataset.noot = localStorage.getItem('noots')
       }
     }
-    console.log('loading noots')
   }
 
   function saveNoot (count) {
     if (storageAvailable('localStorage')) {
       localStorage.setItem('noots', count)
     }
-    console.log('saving noots!')
   }
 
   loadNoot()

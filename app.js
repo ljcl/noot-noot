@@ -22,6 +22,10 @@ if (process.env.ADSENSE_CLIENT && process.env.ADSENSE_AD_SLOT) {
     adSlot: process.env.ADSENSE_AD_SLOT
   }
 }
+app.locals.social = {
+  'facebookId': process.env.FACEBOOK_ID || false,
+  'twitterSite': process.env.TWITTER_SITE || false
+}
 
 app.use(express.static('public'))
 
