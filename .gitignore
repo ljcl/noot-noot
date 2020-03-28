@@ -8,8 +8,8 @@ tmp
 temp
 lib-cov
 coverage
-.grunt
 node_modules
 .env
-ecosystem.json
 .DS_Store
+.next
+out
