@@ -45,7 +45,7 @@ const Index = () => {
       </Head>
       <div className="container" onClick={handleNoot}>
         <Gtm
-          enabled={process.env.NODE_ENV !== 'production'}
+          enabled={process.env.NODE_ENV === 'production'}
           gtmProperty="GTM-WMMQZN"
         />
         <Counter noots={noots} />
@@ -53,7 +53,7 @@ const Index = () => {
         <Ads
           adsenseAdSlot="6278687346"
           adsenseClient="ca-pub-4248643620929479"
-          enabled={process.env.NODE_ENV !== 'production'}
+          enabled={process.env.NODE_ENV === 'production'}
         />
       </div>
       <style jsx>{`
