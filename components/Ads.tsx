@@ -28,7 +28,12 @@ function Ads(props: {
             data-ad-client={props.adsenseClient}
             data-ad-slot={props.adsenseAdSlot}
           ></ins>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                '<script>(adsbygoogle = window.adsbygoogle || []).push({})</script>',
+            }}
+          />
         </div>
         <style jsx>{`
           div {
