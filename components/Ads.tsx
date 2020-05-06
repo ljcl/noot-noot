@@ -5,6 +5,11 @@ function Ads(props: {
   adsenseClient: string;
   adsenseAdSlot: string;
 }) {
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  }, []);
   if (
     props.enabled &&
     props.adsenseAdSlot &&
@@ -28,12 +33,6 @@ function Ads(props: {
             data-ad-client={props.adsenseClient}
             data-ad-slot={props.adsenseAdSlot}
           ></ins>
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<script>(adsbygoogle = window.adsbygoogle || []).push({})</script>',
-            }}
-          />
         </div>
         <style jsx>{`
           div {
