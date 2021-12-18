@@ -1,15 +1,12 @@
 import * as React from 'react';
 import Head from 'next/head';
-
+import Script from 'next/script';
 import Counter from '../components/Counter';
 import Luke from '../components/Luke';
-import Gtm from '../components/Gtm';
 import Ads from '../components/Ads';
 
 import useNoot from '../components/utils/useNoot';
 import useLocalStorage from '../components/utils/useLocalStorage';
-
-const { useEffect } = React;
 
 const Index = () => {
   const [noots, setNoots] = useLocalStorage('noots', 0);
@@ -22,7 +19,7 @@ const Index = () => {
         event: 'trackEvent',
         gtmCategory: 'action',
         gtmAction: 'noot',
-        gtmValue: 1
+        gtmValue: 1,
       });
     }
   });
@@ -44,10 +41,19 @@ const Index = () => {
         <link rel="canonical" href="https://noot.space/" />
       </Head>
       <div className="container" onClick={handleNoot}>
-        <Gtm
-          enabled={process.env.NODE_ENV === 'production'}
-          gtmProperty="GTM-WMMQZN"
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=UA-17879409-4"
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-17879409-4');
+        `}
+        </Script>
         <Counter noots={noots} />
         <Luke />
         <Ads

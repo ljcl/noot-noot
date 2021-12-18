@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import * as React from 'react';
 
 function Ads(props: {
@@ -18,17 +19,21 @@ function Ads(props: {
   ) {
     return (
       <>
-        <script
-          async
-          src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
+        <Head>
+          <script
+            data-ad-client={props.adsenseClient}
+            type="text/javascript"
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          />
+        </Head>
         <div>
           <ins
             className="adsbygoogle"
             style={{
               display: 'inline-block',
               width: 320,
-              height: 100
+              height: 100,
             }}
             data-ad-client={props.adsenseClient}
             data-ad-slot={props.adsenseAdSlot}

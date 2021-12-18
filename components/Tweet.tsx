@@ -18,6 +18,7 @@ export default function Tweet(props: TweetProps) {
         data-noot={props.noots}
         data-tweeturl="https://twitter.com/intent/tweet?url=http%3A%2F%2Fnoot.space&text=just made pingu noot noot"
         href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fnoot.space/&text=noot noot"
+        rel="noreferrer"
       >
         {props.text}
       </a>
