@@ -1,31 +1,32 @@
 import * as React from 'react';
+import { useLocalStorage } from 'react-use';
 
 const { useEffect, useState, useDebugValue } = React;
 
-function useNoot(onNoot?: () => void) {
+function useNoot(): [number, () => Promise<void>] {
   const [nootRetry, setNootRetry] = useState(0);
   const [nootBuffer, setNootBuffer] = useState(null);
-  const [nootContext, setNootContext] = useState(null);
+  const [nootContext, setNootContext] = useState<AudioContext>(null);
+  const [nootCount, setNootCount] = useLocalStorage('noots', 0, { raw: true });
+
   useEffect(() => {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
     const context = new window.AudioContext();
     setNootContext(context);
-    const userAgent = navigator.userAgent || navigator.vendor;
-    const preventFirst = false; // Create and Initialize the Audio Context
 
     var getSound = new XMLHttpRequest(); // Load the Sound with XMLHttpRequest
     getSound.open('GET', 'noot.mp4', true); // Path to Audio File
     getSound.responseType = 'arraybuffer'; // Read as Binary Data
-    getSound.onload = function() {
-      context.decodeAudioData(getSound.response, function(buffer) {
+    getSound.onload = function () {
+      context.decodeAudioData(getSound.response, function (buffer) {
         setNootBuffer(buffer);
       });
     };
     getSound.send(); // Send the Request and Load the File
   }, []);
 
-  const playNoot = async () => {
+  const playNoot = async (): Promise<void> => {
     if (nootContext) {
       var playSound = nootContext.createBufferSource(); // Declare a New Sound
       playSound.buffer = nootBuffer; // Attatch our Audio Data as it's Buffer
@@ -33,11 +34,17 @@ function useNoot(onNoot?: () => void) {
       playSound.start
         ? playSound.start(nootContext.currentTime)
         : playSound.noteOn(nootContext.currentTime); // Play the Sound
-      if (onNoot) onNoot();
+      setNootCount(Number(nootCount) + 1);
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          setNootCount(Number(nootCount) + 2);
+          return resolve;
+        }, 600)
+      );
     } else {
       if (nootRetry < 5) {
         setNootRetry(nootRetry + 1);
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise((resolve) => setTimeout(resolve, 200));
         playNoot();
       } else {
         console.error("Can't noot, sorry :(");
@@ -47,7 +54,7 @@ function useNoot(onNoot?: () => void) {
 
   useDebugValue(`Retried ${nootRetry} time(s)`);
 
-  return playNoot;
+  return [nootCount, playNoot];
 }
 
 export default useNoot;

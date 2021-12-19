@@ -1,30 +1,24 @@
 import Head from 'next/head';
 import * as React from 'react';
 
-function Ads(props: {
-  enabled: boolean;
-  adsenseClient: string;
-  adsenseAdSlot: string;
-}) {
+function Ads() {
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
   }, []);
-  if (
-    props.enabled &&
-    props.adsenseAdSlot &&
-    props.adsenseClient &&
-    typeof window !== 'undefined'
-  ) {
+  const adsenseAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
+  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
+  if (adsenseAdSlot && adsenseClient && typeof window !== 'undefined') {
     return (
       <>
         <Head>
           <script
-            data-ad-client={props.adsenseClient}
+            data-ad-client={adsenseClient}
             type="text/javascript"
             async
-            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           />
         </Head>
         <div>
@@ -35,8 +29,10 @@ function Ads(props: {
               width: 320,
               height: 100,
             }}
-            data-ad-client={props.adsenseClient}
-            data-ad-slot={props.adsenseAdSlot}
+            data-ad-format="auto"
+            data-ad-client={adsenseClient}
+            data-ad-slot={adsenseAdSlot}
+            data-full-width-responsive="true"
           ></ins>
         </div>
         <style jsx>{`
