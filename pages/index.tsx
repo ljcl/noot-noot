@@ -28,6 +28,8 @@ const GoogleAnalytics = () => {
   );
 };
 
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
 const Index = () => {
   const [noots, handleNoot] = useNoot();
 
@@ -45,6 +47,14 @@ const Index = () => {
         <meta property="og:image" content="https://noot.space/noot.gif" />
         <meta property="twitter:site" content="@lukejclark" />
         <link rel="canonical" href="https://noot.space/" />
+        {adsenseClient && (
+          <script
+            data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT}
+            type="text/javascript"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          />
+        )}
       </Head>
       <div
         className="container"

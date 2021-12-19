@@ -13,14 +13,6 @@ function Ads() {
   if (adsenseAdSlot && adsenseClient && typeof window !== 'undefined') {
     return (
       <>
-        <Head>
-          <script
-            data-ad-client={adsenseClient}
-            type="text/javascript"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
-        </Head>
         <div>
           <ins
             className="adsbygoogle"
@@ -54,4 +46,4 @@ function Ads() {
   return null;
 }
 
-export default React.memo(Ads);
+export default Ads;
