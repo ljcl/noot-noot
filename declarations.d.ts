@@ -1,7 +1,6 @@
 interface Window {
   webkitAudioContext: typeof AudioContext;
   dataLayer?: [*];
-  adsbygoogle?: *;
 }
 
 interface AudioBufferSourceNode {

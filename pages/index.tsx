@@ -3,8 +3,6 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Counter from '../components/Counter';
 import Luke from '../components/Luke';
-import Ads from '../components/Ads';
-
 import useNoot from '../components/utils/useNoot';
 
 const GoogleAnalytics = () => {
@@ -28,8 +26,6 @@ const GoogleAnalytics = () => {
   );
 };
 
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-
 const Index = () => {
   const [noots, handleNoot] = useNoot();
 
@@ -47,14 +43,6 @@ const Index = () => {
         <meta property="og:image" content="https://noot.space/noot.gif" />
         <meta property="twitter:site" content="@lukejclark" />
         <link rel="canonical" href="https://noot.space/" />
-        {adsenseClient && (
-          <script
-            data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT}
-            type="text/javascript"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
-        )}
       </Head>
       <div
         className="container"
@@ -64,7 +52,6 @@ const Index = () => {
         <GoogleAnalytics />
         <Counter noots={noots} />
         <Luke />
-        <Ads />
       </div>
       <style jsx>{`
         .container {
