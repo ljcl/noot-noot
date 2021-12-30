@@ -1,13 +1,20 @@
 import * as React from 'react';
 import { useLocalStorage } from 'react-use';
 
-const { useEffect, useState, useDebugValue } = React;
+const { useEffect, useState, useReducer, useDebugValue } = React;
+
 
 function useNoot(): [number, () => Promise<void>] {
   const [nootRetry, setNootRetry] = useState(0);
   const [nootBuffer, setNootBuffer] = useState(null);
   const [nootContext, setNootContext] = useState<AudioContext>(null);
   const [nootCount, setNootCount] = useLocalStorage('noots', 0, { raw: true });
+  const increment = (prev) => {
+    let next = Number(prev) + 1;
+    setNootCount(next);
+    return next;
+  }
+  const [_, incrementNoot] = useReducer(increment, nootCount);
 
   useEffect(() => {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -34,10 +41,10 @@ function useNoot(): [number, () => Promise<void>] {
       playSound.start
         ? playSound.start(nootContext.currentTime)
         : playSound.noteOn(nootContext.currentTime); // Play the Sound
-      setNootCount(Number(nootCount) + 1);
+      incrementNoot();
       await new Promise((resolve) =>
         setTimeout(() => {
-          setNootCount(Number(nootCount) + 2);
+          incrementNoot();
           return resolve;
         }, 600)
       );
