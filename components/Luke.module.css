@@ -1,0 +1,16 @@
+.luke {
+  right: 2px;
+  bottom: 2px;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: monospace;
+  text-decoration: none;
+}
+
+@media (max-width: 389px) {
+  .luke {
+    right: 2px;
+    bottom: auto;
+    top: 2px;
+  }
+}

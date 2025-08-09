@@ -1,0 +1,7 @@
+.counter {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  bottom: 42%;
+  left: 38%;
+}
