@@ -14,7 +14,7 @@
     "export": "next build"
   },
   "dependencies": {
-    "next": "^15.4.8",
+    "next": "^15.4.9",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-use": "^17.3.1"
