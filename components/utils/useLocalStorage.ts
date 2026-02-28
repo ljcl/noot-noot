@@ -1,18 +1,19 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function useLocalStorage(
   key: string,
   initialValue: number,
 ): [number, (value: number | ((prev: number) => number)) => void] {
-  const [storedValue, setStoredValue] = useState<number>(() => {
-    if (typeof window === "undefined") return initialValue;
+  const [storedValue, setStoredValue] = useState<number>(initialValue);
+
+  useEffect(() => {
     try {
       const item = window.localStorage.getItem(key);
-      return item !== null ? Number(item) : initialValue;
+      if (item !== null) setStoredValue(Number(item));
     } catch {
-      return initialValue;
+      // localStorage unavailable
     }
-  });
+  }, [key]);
 
   const setValue = useCallback(
     (value: number | ((prev: number) => number)) => {
