@@ -1,13 +1,14 @@
-/* eslint-disable react/jsx-no-target-blank */
-import * as React from 'react';
-import styles from './Luke.module.css';
+import styles from "./Luke.module.css";
 
-function Luke() {
+export default function Luke() {
   return (
-    <a href="https://lukeclark.com.au/" target="_blank" className={styles.luke}>
+    <a
+      href="https://lukeclark.com.au/"
+      target="_blank"
+      rel="noopener"
+      className={styles.luke}
+    >
       How odd.
     </a>
   );
 }
-
-export default React.memo(Luke);

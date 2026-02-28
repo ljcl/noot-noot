@@ -1,0 +1,103 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": ["**"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "next": "recommended",
+      "project": "recommended",
+      "react": "recommended"
+    },
+    "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUnusedImports": {
+          "level": "error",
+          "fix": "safe"
+        },
+        "noNextAsyncClientComponent": "error"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "useImportType": {
+          "level": "error",
+          "options": {
+            "style": "inlineType"
+          }
+        },
+        "useConsistentArrowReturn": "error"
+      },
+      "nursery": {
+        "noContinue": "error",
+        "noIncrementDecrement": "error",
+        "noMisusedPromises": "error",
+        "noFloatingPromises": "error",
+        "noParametersOnlyUsedInRecursion": "error",
+        "noShadow": "error",
+        "noUnknownAttribute": "error",
+        "noUnnecessaryConditions": "error",
+        "useArraySortCompare": "error",
+        "useExhaustiveSwitchCases": "error"
+      },
+      "suspicious": {
+        "noReactForwardRef": "error",
+        "noDeprecatedImports": "error",
+        "noImportCycles": "error",
+        "noUnusedExpressions": "error"
+      },
+      "complexity": {
+        "noUselessCatchBinding": "error",
+        "noUselessUndefined": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "parser": {
+      "cssModules": true
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "trailingCommas": "none",
+      "indentWidth": 2
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "recommended": true,
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [{ "type": false }]
+          }
+        },
+        "useSortedProperties": "on"
+      }
+    }
+  }
+}

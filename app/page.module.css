@@ -1,9 +1,15 @@
 .container {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  background: url('/noot.gif') 50% 50% no-repeat;
+  left: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  background: url("/noot.gif") 50% 50% no-repeat;
   background-size: cover;
+  border: none;
 }
