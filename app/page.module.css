@@ -10,6 +10,7 @@
   cursor: pointer;
   outline: none;
   background: url("/noot.gif") 50% 50% no-repeat;
+  background: image-set(url("/noot.webp") type("image/webp"), url("/noot.gif") type("image/gif")) 50% 50% no-repeat;
   background-size: cover;
   border: none;
 }
